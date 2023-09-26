@@ -11,6 +11,7 @@ const EditBook = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const {id} = useParams();
+
   useEffect(() => {
     setLoading(true);
     axios.get(`http://localhost:5555/books/${id}`)
@@ -25,7 +26,7 @@ const EditBook = () => {
         console.log(error);
       });
   }, [])
-
+  
   const handleEditBook = () => {
     const data = {
       title,
@@ -37,13 +38,11 @@ const EditBook = () => {
       .put(`http://localhost:5555/books/${id}`, data)
       .then(() => {
         setLoading(false);
-        enqueueSnackbar('Book Created successfully', { variant: 'success' });
         navigate('/');
       })
       .catch((error) => {
         setLoading(false);
-        // alert('An error happened. Please Chack console');
-        enqueueSnackbar('Error', { variant: 'error' });
+        // alert('An error happened. Please Check console');
         console.log(error);
       });
   };
@@ -86,7 +85,7 @@ const EditBook = () => {
         </button>
       </div>
     </div>
-  );
+  )
 }
 
 export default EditBook

@@ -4,14 +4,12 @@ import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-
-const CreateBook = () => {
+const CreateBooks = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [publishYear, setPublishYear] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  
 
   const handleSaveBook = () => {
     const data = {
@@ -28,7 +26,7 @@ const CreateBook = () => {
       })
       .catch((error) => {
         setLoading(false);
-        // alert('An error happened. Please Check console');
+        // alert('An error happened. Please Chack console');
         console.log(error);
       });
   };
@@ -74,4 +72,4 @@ const CreateBook = () => {
   );
 }
 
-export default CreateBook
+export default CreateBooks
